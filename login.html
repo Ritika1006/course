@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - CourseSite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      padding-top: 60px; /* Space for fixed navbar */
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000; /* Ensure navbar stays on top */
+      text-align: center;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+	 nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1em;
+    }
+
+    nav .nav-links a:hover {
+      color: #ff4c4c;
+    }
+
+    .form-container {
+      width: 300px;
+      margin: 100px auto; /* Adjust form position below navbar */
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff4c4c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #ff2b2b;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }</style>
+<body>
+
+<nav>
+  <div class="logo">CourseSite</div>
+  <div class="nav-links">
+    <a href="newPRoject.html">Home</a> <!-- Link to Home page -->
+    <a href="registration.html">Registration</a> <!-- Link to Registration page -->
+  </div>
+</nav>
+</nav>
+
+<div class="form-container">
+  <h2>Login</h2>
+  <form>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit"><a href="course1.html">Login</a></button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2025 CourseSite. All rights reserved.</p>
+</footer>
+
+<script>
+  // Login Form Validation
+  document.querySelector('form').addEventListener('submit', function(event) {
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+
+    if (email === "" || password === "") {
+      alert("Both fields are required.");
+      event.preventDefault();  // Prevent form submission
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - CourseSite</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .admin-container {
+      width: 80%;
+      max-width: 1000px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .admin-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="textarea"] {
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 80%;
+      padding: 12px;
+      background: #ff4c4c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #ff2b2b;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">AdminPanel</div>
+</nav>
+
+<div class="admin-container">
+  <h2>Add New Course</h2>
+  <div class="form-container">
+    <input type="text" placeholder="Course Name" required>
+    <input type="text" placeholder="Course Description" required>
+    <button type="submit">Add Course</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 CourseSite. All rights reserved.</p>
+</footer>
+
+<script>
+  // Admin Form Validation (Add Course)
+  document.querySelector('form').addEventListener('submit', function(event) {
+    const courseName = document.querySelector('input[type="text"]').value;
+    const courseDescription = document.querySelector('input[type="text"]').value;
+
+    // Check for empty fields
+    if (courseName === "" || courseDescription === "") {
+      alert("All fields are required.");
+      event.preventDefault();  // Prevent form submission
+    }
+  });
+</script>
+
+</body>
+</html>

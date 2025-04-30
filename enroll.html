@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enroll Now</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding-top: 60px;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .container {
+      max-width: 500px;
+      background-color: white;
+      padding: 30px;
+      margin: 100px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[readonly] {
+      background-color: #eee;
+    }
+
+    button {
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">CourseSite</div>
+  <div>
+    <a href="newProject.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="registration.html">Register</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Course Enrollment Form</h2>
+  <form>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" placeholder="Enter your phone number" required>
+
+    <label for="course">Course:</label>
+    <input type="text" id="course" readonly>
+
+    <button type="submit"><a href="payment.html">Submit Enrollment</a></button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2025 CourseSite. All rights reserved.</p>
+</footer>
+
+<script>
+  // Set course from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const course = urlParams.get('course');
+  if (course) {
+    document.getElementById('course').value = course.replace(/-/g, ' ').toUpperCase();
+  }
+
+  // Handle form submission
+  document.getElementById('enrollForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const enrollment = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      course: document.getElementById('course').value.trim()
+    };
+
+    // Save to localStorage
+    let enrollments = JSON.parse(localStorage.getItem('enrollments')) || [];
+    enrollments.push(enrollment);
+    localStorage.setItem('enrollments', JSON.stringify(enrollments));
+
+    alert('Enrollment submitted successfully!');
+    this.reset(); // clear form
+  });
+</script>
+</body>
+</html>

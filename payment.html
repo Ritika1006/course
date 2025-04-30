@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    img.qr {
+      width: 200px;
+      margin: 20px 0;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Complete Your Payment</h2>
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Course:</strong> <span id="course"></span></p>
+
+    <img src="upi_qr_ritika.png" alt="Scan to Pay" class="qr">
+    <p class="note">Scan the QR code above using any UPI app to pay ₹499.</p>
+
+    <button onclick="alert('Payment confirmed (demo)!')">Pay</button>
+  </div>
+
+  <script>
+    // Get data from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('name').textContent = urlParams.get('name') || "N/A";
+    document.getElementById('course').textContent = urlParams.get('course') || "N/A";
+  </script>
+</body>
+</html>

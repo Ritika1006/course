@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Courses - CourseSite</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      padding-top: 60px;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1em;
+    }
+
+    nav .nav-links a:hover {
+      color: #ff4c4c;
+    }
+
+    .courses-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 100px auto;
+      padding: 20px;
+    }
+
+    .course-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 30px;
+      cursor: pointer; /* Added cursor pointer for click */
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05); /* Slight zoom effect when hovered */
+    }
+
+    .course-card h3 {
+      margin: 10px 0;
+    }
+
+    .course-card p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .course-card button {
+      background-color: #ff4c4c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .course-card button:hover {
+      background-color: #ff2b2b;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">CourseSite</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="registration.html">Registration</a>
+  </div>
+</nav>
+
+<div class="courses-container">
+  <div class="course-card" onclick="goToEnrollPage('web-development')">
+    <h3>Web Development</h3>
+    <p>Learn how to build websites using HTML, CSS, and JavaScript. Ideal for beginners.</p>
+    <button> <a href="enroll.html.html"></a>Enroll</button>
+  </div>
+
+  <div class="course-card" onclick="goToEnrollPage('data-science')">
+    <h3>Data Science</h3>
+    <p>Master Python and learn how to analyze data for making insightful decisions.</p>
+    <button> <a href="enroll.html.html"></a>Enroll</button>
+  </div>
+
+  <div class="course-card" onclick="goToEnrollPage('cloud-computing')">
+    <h3>Cloud Computing</h3>
+    <p>Get hands-on experience with cloud platforms like AWS, Azure, and Google Cloud.</p>
+    <button> <a href="enroll.html.html"></a>Enroll</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 CourseSite. All rights reserved.</p>
+</footer>
+
+<script>
+  // Function to navigate to the Enroll page with the course name as a query parameter
+  function goToEnrollPage(courseName) {
+    window.location.href = `enroll.html?course=${courseName}`;
+  }
+</script>
+
+</body>
+</html>
